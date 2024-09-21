@@ -37,6 +37,9 @@ public class ReactiveService {
         }
     }
 
+
+    //
+
     public Multi<String> getDataReactiveStream() {
         return Multi.createFrom().emitter(emitter -> {
             long timerId = vertx.setPeriodic(10, id -> {
@@ -81,4 +84,6 @@ public class ReactiveService {
             Thread.currentThread().interrupt();
         }
     }
+
+    //
 }

@@ -18,13 +18,15 @@ dependencies {
     implementation 'io.quarkus:quarkus-rest-client-reactive'
     implementation 'io.quarkus:quarkus-resteasy-reactive-jackson'
     implementation 'io.quarkus:quarkus-rest-client-reactive-jackson'
+    implementation 'io.quarkus:quarkus-vertx'
 
-    // 添加這行來解決 RegisterRestClient 的問題
     implementation 'io.quarkus:quarkus-rest-client'
-
+    implementation 'org.eclipse.microprofile.rest.client:microprofile-rest-client-parent:4.0'
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.quarkus:quarkus-junit5-mockito'
     testImplementation 'io.rest-assured:rest-assured'
+
+
 }
 
 

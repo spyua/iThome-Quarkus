@@ -18,6 +18,16 @@ import java.util.concurrent.TimeUnit;
 @Path("/nonblocking")
 public class NonBlockingResource {
 
+
+    @Inject
+    DatabaseSimulationService service;
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public CompletionStage<List<String>> getData() {
+        return service.getDataNonBlocking(50);
+    }
+    /*
     @Inject
     NonBlockingService service;
 
@@ -26,7 +36,7 @@ public class NonBlockingResource {
     public ResponseData getData() {
         return service.getData();
     }
-
+    */
     /*
     @GET
     @Produces(MediaType.SERVER_SENT_EVENTS)

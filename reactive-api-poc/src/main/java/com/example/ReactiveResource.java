@@ -11,15 +11,27 @@ import jakarta.ws.rs.core.MediaType;
 import java.util.List;
 @Path("/reactive")
 public class ReactiveResource {
+    /*
     @Inject
     ReactiveService service;
+    */
+    @Inject
+    DatabaseSimulationService service;
 
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<List<String>> getData() {
+        return service.getDataReactive(50);
+    }
+
+    /*(
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<ResponseData> getData() {
         return service.getData();
     }
-
+*/
     /*
     @GET
     @Produces(MediaType.SERVER_SENT_EVENTS)
