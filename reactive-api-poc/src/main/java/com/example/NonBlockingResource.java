@@ -22,6 +22,13 @@ public class NonBlockingResource {
     NonBlockingService service;
 
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public ResponseData getData() {
+        return service.getData();
+    }
+
+    /*
+    @GET
     @Produces(MediaType.SERVER_SENT_EVENTS)
     public void getDataNonBlocking(@Context SseEventSink eventSink, @Context Sse sse) {
         CompletableFuture.runAsync(() -> {
@@ -46,5 +53,7 @@ public class NonBlockingResource {
             }
         });
     }
+
+     */
 
 }

@@ -2,6 +2,7 @@ package com.example;
 
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
+import io.smallrye.mutiny.infrastructure.Infrastructure;
 import io.vertx.mutiny.core.Vertx;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -19,6 +20,22 @@ public class ReactiveService {
     Vertx vertx;
 
     private Random random = new Random();
+
+    public Uni<ResponseData> getData() {
+        return Uni.createFrom().item(() -> {
+            // 模拟I/O操作，例如数据库查询
+            simulateIOOperation();
+            return new ResponseData("Reactive Response");
+        }).runSubscriptionOn(Infrastructure.getDefaultExecutor());
+    }
+
+    private void simulateIOOperation() {
+        try {
+            Thread.sleep(100); // 模拟延迟
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     public Multi<String> getDataReactiveStream() {
         return Multi.createFrom().emitter(emitter -> {

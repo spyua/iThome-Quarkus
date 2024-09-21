@@ -15,6 +15,13 @@ public class ReactiveResource {
     ReactiveService service;
 
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Uni<ResponseData> getData() {
+        return service.getData();
+    }
+
+    /*
+    @GET
     @Produces(MediaType.SERVER_SENT_EVENTS)
     public Multi<String> getDataReactive() {
         return service.getDataReactiveStream()
@@ -23,5 +30,5 @@ public class ReactiveResource {
                 .onItem().transformToUniAndMerge(item -> service.filterData(item))
                 .onOverflow().drop();
     }
-
+    */
 }

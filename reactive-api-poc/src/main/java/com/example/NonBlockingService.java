@@ -16,6 +16,20 @@ public class NonBlockingService {
     @Inject
     ManagedExecutor executor;
 
+    public ResponseData getData() {
+        // 模拟I/O操作
+        simulateIOOperation();
+        return new ResponseData("Non-Blocking Response");
+    }
+
+    private void simulateIOOperation() {
+        try {
+            Thread.sleep(100); // 模拟延迟
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     private Random random = new Random();
 
     public CompletableFuture<String> getDataNonBlocking() {
