@@ -25,7 +25,7 @@ public class NonBlockingResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public CompletionStage<List<String>> getData() {
-        return service.getDataNonBlocking(50);
+        return service.getDataNonBlocking(500);
     }
     /*
     @Inject

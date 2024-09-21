@@ -22,7 +22,7 @@ public class ReactiveResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<List<String>> getData() {
-        return service.getDataReactive(50);
+        return service.getDataReactive(500);
     }
 
     /*(
