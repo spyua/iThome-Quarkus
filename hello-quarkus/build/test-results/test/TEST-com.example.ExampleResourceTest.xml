@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.ExampleResourceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-10T16:04:57" hostname="LAPTOP-IFQHQUQJ" time="0.946">
+  <properties/>
+  <testcase name="testHelloEndpoint()" classname="com.example.ExampleResourceTest" time="0.946"/>
+  <system-out><![CDATA[2024-09-11 00:04:57,064 INFO  [io.quarkus] (Test worker) hello-quarkus 1.0-SNAPSHOT on JVM (powered by Quarkus 3.14.1) started in 1.944s. Listening on: http://localhost:8081
+2024-09-11 00:04:57,068 INFO  [io.quarkus] (Test worker) Profile test activated. 
+2024-09-11 00:04:57,069 INFO  [io.quarkus] (Test worker) Installed features: [cdi, rest, smallrye-context-propagation, vertx]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

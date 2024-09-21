@@ -1,0 +1,1 @@
+{"resource_usage":{"memory":{"system_total":16952647680,"peak_rss_bytes":605962240},"garbage_collection":{"count":16,"total_secs":0.309},"cpu":{"load":0.8529056813962124,"total_cores":8},"total_secs":4.6586605},"general_info":{"name":"hello-quarkus-1.0-SNAPSHOT-runner"}}
