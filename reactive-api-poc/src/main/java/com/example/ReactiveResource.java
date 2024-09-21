@@ -1,5 +1,6 @@
 package com.example;
 
+import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
@@ -14,8 +15,13 @@ public class ReactiveResource {
     ReactiveService service;
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Uni<List<String>> getDataReactive() {
-        return service.getDataReactive();
+    @Produces(MediaType.SERVER_SENT_EVENTS)
+    public Multi<String> getDataReactive() {
+        return service.getDataReactiveStream()
+                .onItem().transformToUniAndMerge(item -> service.enrichData(item))
+                .onItem().transformToUniAndMerge(item -> service.processData(item))
+                .onItem().transformToUniAndMerge(item -> service.filterData(item))
+                .onOverflow().drop();
     }
+
 }
